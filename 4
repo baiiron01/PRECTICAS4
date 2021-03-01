@@ -1,0 +1,34 @@
+using System;
+
+namespace ConsoleApp4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //4.Un programa que pida al usuario 10 números y luego calcule y muestre cuál es el mayor de todos ellos.
+
+int suma, f, valor, promedio;
+            string linea;
+            suma = 0;
+            for (f = 1; f <= 10; f++)
+            {
+                Console.Write("Ingrese valor:");
+                linea = Console.ReadLine();
+                valor = int.Parse(linea);
+                suma = suma + valor;
+            }
+            Console.Write("La suma es:");
+            Console.WriteLine(suma);
+            promedio = suma / 10;
+            Console.Write("El promedio es:");
+            Console.Write(promedio);
+            Console.ReadKey();
+
+
+        }
+    }
+
+        }
+
+
