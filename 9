@@ -1,0 +1,47 @@
+using System;
+
+namespace jhon
+{
+
+    class tmulti
+    {
+
+        
+//9.	Crear una clase que permita ingresar valores enteros por teclado y nos
+//  muestre la tabla de multiplicar de dicho valor.Finalizar el programa al ingresar el -1.
+
+        public void CargarValor()
+        {
+            int valor;
+            string linea;
+            do
+            {
+                Console.Write("INGRESE EL VALOR (-1 PARA FINALIZAR):");
+                linea = Console.ReadLine();
+                valor = int.Parse(linea);
+                if (valor != -1)
+                {
+                    Calcular(valor);
+                }
+            } while (valor != -1);
+        }
+
+        public void Calcular(int v)
+        {
+            for (int f = v; f <= v * 10; f = f + v)
+            {
+                Console.Write(f + "-");
+            }
+            Console.WriteLine();
+        }
+        static void Main(string[] args)
+        {
+            tmulti tm = new tmulti();
+            tm.CargarValor();
+        }
+
+    }
+
+}
+
+
