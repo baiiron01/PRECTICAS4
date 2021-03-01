@@ -1,0 +1,68 @@
+using System;
+
+namespace ConsoleApp8
+{
+
+    class Program
+    {
+
+
+//        8.Crear un programa que defina un array de 5 elementos de tipo float que representen las alturas de 5 personas.
+//Obtener el promedio de las mismas.Contar cuántas personas son más altas que el promedio y cuántas más bajas.
+
+  private float[] alturas;
+        private float promedio;
+
+        public void Cargar()
+        {
+            alturas = new float[5];
+            for (int f = 0; f < 5; f++)
+            {
+                Console.Write("DIGITE LA ALTURA:");
+                string linea = Console.ReadLine();
+                alturas[f] = float.Parse(linea);
+            }
+        }
+
+
+        public void CalcularPromedio()
+        {
+            float suma;
+            suma = 0;
+            for (int f = 0; f < 5; f++)
+            {
+                suma = suma + alturas[f];
+            }
+            promedio = suma / 5;
+            Console.WriteLine("ALTURA PROMEDIO:" + promedio);
+        }
+
+        public void MayoresMenores()
+        {
+            int may, men;
+            may = 0;
+            men = 0;
+            for (int f = 0; f < 5; f++)
+            {
+                if (alturas[f] > promedio)
+                {
+                    may++;
+                }
+                else
+                {
+                    if (alturas[f] < promedio)
+                    {
+                        men++;
+                    }
+                }
+            }
+            Console.WriteLine("CANTIDAD DE PERSONAS MAYOR AL PROMEDIO:" + may);
+            Console.WriteLine("CANTIDAD DE PERSONAS MENOR AL PROMEDIO:" + men);
+            Console.ReadKey();
+        }
+
+        
+    }
+}
+
+
