@@ -1,0 +1,113 @@
+using System;
+
+namespace imagen
+{
+    class Program
+    {
+        class Imagenes
+        {
+            int[] ancho = new int[700];
+            string[] name = new string[700];
+            float[] tamaño = new float[700];
+            int[] altura = new int[700];
+            int namelista;
+
+
+            public void Añadir()
+            {
+                int valor = 0;
+                do
+                {
+                    Console.WriteLine("NOMBRE DE FICHERO: ");
+                    name[namelista] = Console.ReadLine();
+                    Console.WriteLine("DIGITE ANCHO DE PIXELES: ");
+                    ancho[namelista] = int.Parse(Console.ReadLine());
+                    Console.WriteLine("DIGITE ALTURA DE IMAGEN: ");
+                    altura[namelista] = int.Parse(Console.ReadLine());
+                    Console.WriteLine("TANANO DE LA IMAGEN EN KB):  ");
+                    tamaño[namelista] = float.Parse(Console.ReadLine());
+                    Console.WriteLine("DESEA SALIR? (Ingrese 1), REALIZAR OTRA CONSULTA 2");
+                    valor = int.Parse(Console.ReadLine());
+                    namelista++;
+                    if (namelista == 700)
+                    {
+                        Console.WriteLine("MAXIMO DE IMAGEN (!700!)");
+                    }
+                    if (valor == 1)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                } while ((namelista <= 700) && (valor != 0));
+            }
+
+            public void Ver()
+            {
+                for (int i = 0; i < namelista; i++)
+                {
+                    Console.WriteLine("EL FICHERO NUMERO {0} SU NOMBRE ES  {1}", i, name[i]);
+                    Console.WriteLine("EL FICHERO NUMERO {0} ANCHO ES {1}", i, ancho[i]);
+                    Console.WriteLine("EL FICHERO NUMERO {0} ALTURA ES {1}", i, altura[i]);
+                    Console.WriteLine("EL FICHERO NUMERO {0}TAMAÑO ES {1}", i, tamaño[i]);
+
+                }
+            }
+            public void Buscar()
+            {
+                string fnom;
+                Console.WriteLine("DIGITE NOMBRE DEL FICHERO QUE BUSCA: ");
+                fnom = Console.ReadLine();
+                for (int i = 0; i < namelista; i++)
+                {
+                    if (name[i] == fnom)
+                    {
+                        Console.WriteLine("EL FICHERO SE LLAMA {0}", name[i]);
+                        Console.WriteLine("EL FICHERO TIENE UN ANCHO {0}", ancho[i]);
+                        Console.WriteLine("EL FICHERO TIENE UNA ALTURA {0}", altura[i]);
+                        Console.WriteLine("EL FICHERO TIENE UN TAMAÑO {0}", tamaño[i]);
+                    }
+                }
+            }
+            public void Salir()
+            {
+                Console.Clear();
+                Console.Write("FINAL");
+            }
+        }
+        static void Main(string[] args)
+        {
+
+            Imagenes i = new Imagenes();
+            int va = 0;
+            while (va != 4)
+            {
+                Console.WriteLine("    -Menu Principal-    ");
+                Console.WriteLine("Opcion 1: AÑADIR");
+                Console.WriteLine("Opcion 2: VER FICHAS, NUMERO Y NOMBRE DE IMAGEN)");
+                Console.WriteLine("Opcion 3: BUSCAR POR NOMBRE.");
+                Console.WriteLine("Opcion 4: SALIR ");
+
+                va = int.Parse(Console.ReadLine());
+                Console.Clear();
+                switch (va)
+                {
+                    case 1:
+                        i.Añadir();
+                        break;
+                    case 2:
+                        i.Ver();
+                        break;
+                    case 3:
+                        i.Buscar();
+                        break;
+                    case 4:
+                        i.Salir();
+                        break;
+                }
+            }
+        }
+    }
+}
